@@ -4,7 +4,7 @@ import swing.event.SelectionChanged
 
 /**
  * Created by IntelliJ IDEA.
-  * Date: 11/11/15
+ * Date: 11/11/15
  * Time: 12:57
  * To change this template use File | Settings | File Templates.
  */
@@ -32,9 +32,7 @@ object ComboBoxTest1 extends SimpleSwingApplication {
       reactions += {
         case SelectionChanged(comboA : ComboBox[List[String]]) => {
           println("Selection of ComboBox A is now -> "+comboA.selection.item)
-          val li = (prepareList(comboA.selection.item.mkString) match { // error: type mismatch;
-                                                                // found   : List[String]
-                                                                // required: String
+          val li = (prepareList(comboA.selection.item.mkString) match {
             case Right(f) =>
               f
             case Left(f) =>
