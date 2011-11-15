@@ -30,9 +30,9 @@ object ComboBoxTest1 extends SimpleSwingApplication {
     }).asInstanceOf[List[String]]){
       listenTo(comboA.selection)
       reactions += {
-        case SelectionChanged(comboA : ComboBox[List[String]]) => {
+        case SelectionChanged(comboA : ComboBox[String]) => {
           println("Selection of ComboBox A is now -> "+comboA.selection.item)
-          val li = (prepareList(comboA.selection.item.mkString) match {
+          val li = (prepareList(comboA.selection.item) match {
             case Right(f) =>
               f
             case Left(f) =>
